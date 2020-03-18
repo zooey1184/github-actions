@@ -19,7 +19,7 @@ jobs:
   #       BUILD_SCRIPT: npm install && npm run build
   
   build:
-    name: jianbing dev.51bmsh.com for test
+    name: dev.51bmsh.com 测试
     runs-on: ubuntu-latest
     steps:
       # 切换分支
@@ -47,7 +47,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.dev_51bmsh_com }}
           ARGS: "-avz --delete"
-          SOURCE: "/build"
+          SOURCE: "build"
           REMOTE_HOST: "47.99.110.145"
           REMOTE_USER: "root"
           TARGET: "/jianbing/base/h5/gitAction/test"

@@ -47,7 +47,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
           ARGS: "-avz --delete"
-          SOURCE: "/dist"
+          SOURCE: "/build"
           REMOTE_HOST: "47.99.110.145"
           REMOTE_USER: "root"
           TARGET: "/jianbing/base/h5/gitAction/test"

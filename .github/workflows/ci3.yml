@@ -4,19 +4,19 @@ on:
     branches:
       - master
 jobs:
-  # build-and-deploy:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - name: Checkout
-  #     uses: actions/checkout@master # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
 
-  #   - name: Build and Deploy
-  #     uses: JamesIves/github-pages-deploy-action@master
-  #     env:
-  #       ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-  #       BRANCH: gh-pages
-  #       FOLDER: build
-  #       BUILD_SCRIPT: npm install && npm run build
+    - name: Build and Deploy
+      uses: JamesIves/github-pages-deploy-action@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: build
+        BUILD_SCRIPT: npm install && npm run build
   
   build:
     name: dev.51bmsh.com 测试
@@ -46,7 +46,7 @@ jobs:
         uses: easingthemes/ssh-deploy@v2.0.7
         env:
           SSH_PRIVATE_KEY: ${{ secrets.mac_Token }}
-          ARGS: "-avz --delete"
+          ARGS: "-avzr --delete"
           SOURCE: "build/"
           REMOTE_HOST: "161.117.88.12"
           REMOTE_USER: "root"

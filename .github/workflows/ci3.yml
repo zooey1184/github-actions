@@ -18,37 +18,37 @@ jobs:
         FOLDER: build
         BUILD_SCRIPT: npm install && npm run build
   
-  build:
-    name: dev.51bmsh.com 测试
-    runs-on: ubuntu-latest
-    steps:
-      # 切换分支
-      - name: Checkout
-        uses: actions/checkout@master
-      # 下载 git submodule
-      - uses: srt32/git-actions@v0.0.3
-        with:
-          args: git submodule update --init --recursive
-      # 使用 node:10
-      - name: use Node.js 10
-        uses: actions/setup-node@v1
-        with:
-          node-version: 10
-      # npm install
-      - name: npm install and build
-        run: |
-          npm install
-          npm run build
-        env:
-          CI: true
-      # Deploy
-      - name: 部署服务器
-        uses: easingthemes/ssh-deploy@v2.0.7
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.mac_Token }}
-          ARGS: "-avzr --delete"
-          SOURCE: "build/"
-          REMOTE_HOST: "161.117.88.12"
-          REMOTE_USER: "root"
-          REMOTE_PORT: "20002"
-          TARGET: "/jianbing/base/h5/pages/gitActions/homePage"
+  # build:
+  #   name: dev.51bmsh.com 测试
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     # 切换分支
+  #     - name: Checkout
+  #       uses: actions/checkout@master
+  #     # 下载 git submodule
+  #     - uses: srt32/git-actions@v0.0.3
+  #       with:
+  #         args: git submodule update --init --recursive
+  #     # 使用 node:10
+  #     - name: use Node.js 10
+  #       uses: actions/setup-node@v1
+  #       with:
+  #         node-version: 10
+  #     # npm install
+  #     - name: npm install and build
+  #       run: |
+  #         npm install
+  #         npm run build
+  #       env:
+  #         CI: true
+  #     # Deploy
+  #     - name: 部署服务器
+  #       uses: easingthemes/ssh-deploy@v2.0.7
+  #       env:
+  #         SSH_PRIVATE_KEY: ${{ secrets.mac_Token }}
+  #         ARGS: "-avzr --delete"
+  #         SOURCE: "build/"
+  #         REMOTE_HOST: "161.117.88.12"
+  #         REMOTE_USER: "root"
+  #         REMOTE_PORT: "20002"
+  #         TARGET: "/jianbing/base/h5/pages/gitActions/homePage"

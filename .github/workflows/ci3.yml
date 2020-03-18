@@ -51,4 +51,4 @@ jobs:
           REMOTE_HOST: "161.117.88.12"
           REMOTE_USER: "root"
           REMOTE_PORT: "20002"
-          TARGET: "/jianbing/base/h5/pages/gitActios/homePage"
+          TARGET: "/jianbing/base/h5/pages/gitActions/homePage"

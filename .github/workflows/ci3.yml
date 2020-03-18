@@ -45,7 +45,7 @@ jobs:
       - name: 部署服务器
         uses: easingthemes/ssh-deploy@v2.0.7
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.dev_51bmsh_com2 }}
+          SSH_PRIVATE_KEY: ${{ secrets.dev_51bmsh_com }}
           ARGS: "-avz --delete"
           SOURCE: "build/"
           REMOTE_HOST: "47.99.110.145"
